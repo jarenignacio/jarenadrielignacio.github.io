@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignacio | Professional Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================================================
+       1. Global Header / Navigation Bar
+       ========================================================================== -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="#hero">
+                <img src="images/logo.png" alt="IGNACIO Digital Systems Logo" class="logo-img">
+            </a>
+        </div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#hero">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#portfolio">PORTFOLIO</a></li>
+            <li><a href="#contact">CONTACT US</a></li>
+            <li>
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">🌙</button>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            
+            <!-- Left Data Column -->
+            <div class="hero-content">
+                <h1 class="hero-title">Meet <span class="brand-name">JAREN</span></h1>
+                <p class="hero-subtitle">
+                    A Digital Infrastructure Developer and current Bachelor of Science in Information Technology student majoring in Web and Mobile Applications Development, specializing in Civic, Institutional, and Academic Web Systems.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-hire">Hire Now</a>
+                    <a href="#portfolio" class="btn btn-link">View Portfolio</a>
+                </div>
+                
+                <div class="hero-expertise">
+                    <span class="expertise-label">Expertise in</span>
+                    <div class="badge-row">
+                        <span class="badge html-badge">HTML</span>
+                        <span class="badge css-badge">CSS</span>
+                        <span class="badge js-badge">JS</span>
+                        <span class="badge git-badge">Git</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Column -->
+            <div class="hero-visual">
+                <div class="gradient-backdrop"></div>
+                <img src="images/profile.jpg" alt="Ignacio Portrait" class="profile-img">
+                <div class="stamp-badge">
+                    <div class="stamp-arrow">↗</div>
+                </div>
+            </div>
+
+        </div>
+        
+    </section>
+
+    <!-- START ABOUT SECTION BLOCK (Ensure this is written right below it) -->
+    <section class="sectors-section">
+        <div class="sectors-container">
+            
+            <!-- Section Centered Heading -->
+            <h2 class="sectors-heading">SECTOR PILLARS</h2>
+            
+            <!-- Updated class name to trigger the horizontal flex engine -->
+            <div class="sectors-horizontal-row">
+                
+                <!-- Card 1: Government Systems -->
+                <div class="sector-card">
+                    <div class="sector-icon-box">
+                        <span class="sector-icon">🏛️</span>
+                    </div>
+                    <h3 class="sector-title">Government Systems</h3>
+                    <p class="sector-text">
+                        High-security, WCAG-compliant web systems built to digitize municipal operations, streamline document requests, and expand online access for residents.
+                    </p>
+                </div>
+
+                <!-- Card 2: Private & Corporate Organizations -->
+                <div class="sector-card">
+                    <div class="sector-icon-box">
+                        <span class="sector-icon">👥</span>
+                    </div>
+                    <h3 class="sector-title">Private & Corporate Organizations</h3>
+                    <p class="sector-text">
+                        Scalable, role-based management platforms engineered to optimize inventory workflows, internal reporting, and enterprise resource tracking.
+                    </p>
+                </div>
+
+                <!-- Card 3: Educational Institutions -->
+                <div class="sector-card">
+                    <div class="sector-icon-box">
+                        <span class="sector-icon">🎓</span>
+                    </div>
+                    <h3 class="sector-title">Educational Institutions</h3>
+                    <p class="sector-text">
+                        Accessible management hubs designed to unify student enrollment, faculty workflows, transcript generation, and campus communications.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="capabilities-section">
+        <div class="sectors-container">
+            
+            <!-- Section Centered Heading -->
+            <h2 class="sectors-heading">CORE TECHNICAL CAPABILITIES</h2>
+            
+            <!-- Updated class name to trigger the horizontal flex engine -->
+            <div class="portfolio-fixed-grid">
+                
+                <!-- Card 1: Standards & Compliance -->
+                <div class="sector-card portfolio-adjusted-card">
+                    <div class="sector-icon-box">
+                        <span class="sector-icon">✅</span>
+                    </div>
+                    <h3 class="sector-title">Standards & Compliance</h3>
+                    <p class="sector-text">
+                        WCAG 2.1 AA, ADA Section 508, FERPA, Data Privacy Act Guidelines.
+                    </p>
+                </div>
+
+                <!-- Card 2: Frontend Engineering -->
+                <div class="sector-card portfolio-adjusted-card">
+                    <div class="sector-icon-box">
+                        <span class="sector-icon">💻</span>
+                    </div>
+                    <h3 class="sector-title">Frontend Engineering</h3>
+                    <p class="sector-text">
+                        • React, JavaScript (ES6+), Semantic HTML5, Tailwind CSS, Mobile-First UI.
+                    </p>
+                </div>
+
+                <!-- Card 3: • Backend & Systems -->
+                <div class="sector-card portfolio-adjusted-card">
+                    <div class="sector-icon-box">
+                        <span class="sector-icon">🗄️</span>
+                    </div>
+                    <h3 class="sector-title">Backend & Systems</h3>
+                    <p class="sector-text">
+                        REST APIs, Node.js, Secure SSO, Role-Based Access Control (RBAC), SQL Database Architecture.
+                    </p>
+                </div>
+
+                <!-- Card 4: • Security & Optimization -->
+                <div class="sector-card portfolio-adjusted-card">
+                    <div class="sector-icon-box">
+                        <span class="sector-icon">🛡️</span>
+                    </div>
+                    <h3 class="sector-title">Security & Optimization</h3>
+                    <p class="sector-text">
+                        SSL/TLS Protocols, Content Security Policy (CSP), Core Web Vitals Optimization.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+        <section class="systems-section">
+        <div class="sectors-container">
+            
+            <!-- Section Centered Heading -->
+            <h2 class="sectors-heading">FEATURED SYSTEM IMPLEMENTATIONS</h2>
+            
+            <div class="portfolio-fixed-grid">
+            
+                <!-- Card 1: Barangay Documentation & Certificate Request System -->
+                <div class="sector-card">
+                     <h3 class="sector-title">Barangay Documentation & Certificate Request System</h3>
+                    <p class="card-meta-info">
+                    Sector: Government / Local Civic Infrastructure
+                    </p>
+                    <p class="card-meta-info">
+                    Standards: WCAG 2.1 AA | Data Privacy Act Compliant
+                    </p>
+                    
+                    <p class="sector-text">
+                        A secure public service web portal built to digitize manual desk operations, allowing residents to request clearances and certificates online with real-time status tracking. Key Deliverables include automated tracking ID generation, administrative verification queues, and SMS/Email status notifications. Impact: 100% WCAG 2.1 AA Pass Rate and a 65% reduction in municipal hall waiting times.
+                    </p>
+
+                    
+                </div>
+
+                <!-- Card 2: Enterprise Multi-Warehouse Inventory Management System -->
+                <div class="sector-card">
+                    <h3 class="sector-title">Enterprise Multi-Warehouse Inventory Management System</h3>
+                    <p class="card-meta-info">
+                    Sector: Corporate / Logistics & Supply Chain
+                    </p>
+                    <p class="card-meta-info">
+                    Standards: SOC 2 Security Protocols | REST API Architecture
+                    </p>
+
+                    <p class="sector-text">
+                        A high-speed web platform engineered for real-time stock tracking, automated reorder thresholds, and multi-location asset management across enterprise facility nodes. Key Deliverables include an interactive inventory dashboard with low-stock alerts, role-based access control (RBAC), and barcode scanner API integration. Impact: Achieved a 99.9% uptime record and improved stock auditing speed by 40%.
+                    </p>
+                </div>
+
+                <!-- Card 3: • Centralized Academic Management Information System (AMIS) -->
+                <div class="sector-card">
+                    <h3 class="sector-title">Centralized Academic Management Information System (AMIS)</h3>
+                    <p class="card-meta-info">
+                    Sector: Education / Academic Institutions
+                    </p>
+                    <p class="card-meta-info">
+                    Standards: FERPA Standards | Secure SSO | WCAG 2.1 AA
+                    </p>
+
+                    <p class="sector-text">
+                        A comprehensive academic operations hub designed to streamline student registration, grade submission, faculty scheduling, and institutional record-keeping. Key Deliverables include student self-service portals, faculty grade submission dashboards, and automated transcript processing. Impact: Handled peak enrollment traffic with zero downtime and 100/100 Core Web Vitals performance.
+                    </p>
+                </div>
+
+                <!-- Card 4: • Archival Digitalization & Church Records Management System  -->
+                <div class="sector-card">
+                    <h3 class="sector-title">Archival Digitalization & Church Records Management System</h3>
+                    <p class="card-meta-info">
+                    Sector: Institutional / Non-Profit & Heritage Archives
+                    </p>
+                    <p class="card-meta-info">
+                    Standards: Metadata Indexing | High-Resolution Archival Storage
+                    </p>
+
+                    <p class="sector-text">
+                        A comprehensive archival solution designed to digitize and manage historical church records, ensuring their preservation and accessibility for future generations. Key Deliverables include high-resolution scanning, metadata tagging, and a searchable digital repository. Impact: Reduced physical storage needs by 80% and improved access to historical documents by 150%.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="hero-actions">
+                <a href="#portfolio" class="btn btn-link2">View Portfolio</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="portfolio-footer" id="contact">
+        <div class="footer-container">
+            
+            <!-- Left Branding Pillar -->
+            <div class="footer-brand-column">
+                <img src="images/logo.png" alt="IGNACIO Digital Systems Logo" class="footer-logo">
+                <p class="footer-bio">
+                    Engineering secure, accessible, and high-performance digital systems for civic, academic, and private institutions.
+                </p>
+            </div>
+
+            <!-- Right Quick Navigation Links Array -->
+            <div class="footer-links-column">
+                <h4 class="footer-nav-title">Quick Links</h4>
+                <ul class="footer-nav-list">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+            </div>
+
+            <!-- Right Contact Link Pillar -->
+            <div class="footer-links-column">
+                <h4 class="footer-nav-title">Contact</h4>
+                <ul class="footer-nav-list">
+                    <li>Email: jarenadrielignacio@gmail.com</li>
+                    <li>Phone: +63 975 881 6004</li>
+                    <li>Facebook: https://www.facebook.com/dyarennn</li>
+                    <li>Location: Los Baños, Laguna 4030 Philippines</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Base Copyright Horizontal Rule Row Bar -->
+        <div class="footer-copyright-bar">
+            <p>&copy; <span id="current-year">2026</span> JAREN | IGNACIO Digital Systems. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
