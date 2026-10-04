@@ -1,0 +1,751 @@
+/* ==========================================================================
+   1. Theme System Framework Variables
+   ========================================================================== */
+:root {
+    --navbar-bg: linear-gradient(90deg, #4a154b 0%, #2b0c30 100%);
+    --body-bg: #0b0b0b;
+    --card-bg: #161616;
+    --border-color: #262626;
+    --text-primary: #ffffff;
+    --text-secondary: #999999;
+    --accent-coral: #ff6b4a;
+    --accent-coral-hover: #e55a39;
+    --nav-mobile-bg: #2b0c30;
+    --shadow-tint: rgba(0, 0, 0, 0.4);
+    --backdrop-gradient: linear-gradient(150deg, #631f75 0%, #a2396c 40%, #df6d45 100%);
+    --stamp-bg: #ffffff;
+    
+    /* Reusable Card Elements Default Skins */
+    --sector-card-bg: #1a202c;
+    --sector-card-hover-bg: #212936;
+    --sector-title-color: #ffffff;
+    --sector-text-color: #a0aec0;
+}
+
+[data-theme="light"] {
+    --navbar-bg: linear-gradient(90deg, #f4f4f9 0%, #e2e2e9 100%);
+    --body-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-coral: #be185d;
+    --accent-coral-hover: #9d174d;
+    --nav-mobile-bg: #f4f4f9;
+    --shadow-tint: rgba(148, 163, 184, 0.1);
+    --backdrop-gradient: linear-gradient(150deg, #cbd5e1 0%, #94a3b8 100%);
+    --stamp-bg: #0f172a;
+
+    --sector-card-bg: #ffffff;
+    --sector-card-hover-bg: #f8fafc;
+    --sector-title-color: #0f172a;
+    --sector-text-color: #475569;
+}
+
+/* ==========================================================================
+   2. Global Reset Rules
+   ========================================================================== */
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ==========================================================================
+   3. Navigation Layer Header
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 65px;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navbar-bg);
+    z-index: 1000;
+    box-shadow: 0 4px 15px var(--shadow-tint);
+    transition: background 0.3s ease;
+}
+
+.logo-container, .logo-container a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.theme-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.theme-btn:hover { transform: scale(1.15); }
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   4. Hero Section Symmetrical Layout
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 140px 40px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+}
+
+.hero-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+}
+
+.hero-title {
+    margin: 0 0 20px;
+    color: var(--text-primary);
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.brand-name {
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary) 40%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 0 35px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.65;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.btn-hire {
+    padding: 14px 32px;
+    background-color: var(--accent-coral);
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-hire:hover {
+    background-color: var(--accent-coral-hover);
+    transform: translateY(-2px);
+}
+
+.btn-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.btn-link .arrow { color: var(--accent-coral); font-size: 1.1rem; }
+
+.hero-expertise {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.expertise-label {
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.badge-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.badge {
+    min-width: 45px;
+    padding: 8px 16px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.html-badge { border-color: #e34f26; }
+.css-badge  { border-color: #1572b6; }
+.js-badge   { border-color: #f7df1e; }
+.git-badge  { border-color: #f05032; }
+
+.hero-visual {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.profile-img {
+    position: relative;
+    z-index: 5;
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 0 0 16px 16px;
+}
+
+.stamp-badge {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    z-index: 10;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--stamp-bg);
+    border-radius: 50%;
+    box-shadow: 0 10px 25px var(--shadow-tint);
+}
+
+.stamp-arrow { color: var(--accent-coral); font-size: 1.6rem; font-weight: 700; }
+
+.hero-scroll-indicator {
+    position: absolute;
+    left: 40px;
+    bottom: 0;
+    z-index: 15;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    background-color: var(--card-bg);
+}
+
+.scroll-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 28px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.scroll-link .chevron { color: var(--text-primary); font-weight: 700; }
+
+/* ==========================================================================
+   5. General Reusable Section Container Base
+   ========================================================================== */
+.sectors-section {
+    padding-top: 100px !important;   /* Pushes the content down from the section above */
+    padding-bottom: 100px !important;/* Pushes the content up from the section below */
+    box-sizing: border-box !important;
+    display: block !important;
+    clear: both !important;
+}
+
+.sectors-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    padding-bottom: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sectors-heading {
+    color: var(--text-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 50px 0;
+    Padding-top: 50px;
+}
+
+.sector-card {
+    background-color: var(--sector-card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 15px 35px var(--shadow-tint);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.sector-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-coral);
+    background-color: var(--sector-card-hover-bg);
+}
+
+.sector-icon-box {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sector-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.sector-title {
+    color: var(--sector-title-color);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    line-height: 1.3;
+}
+
+.sector-text {
+    color: var(--sector-text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   6. Horizontal Flat Custom Rows Display (WHO WE ARE & SECTORS Scrollbars)
+   ========================================================================== */
+.about-four-grid, .sectors-horizontal-row {
+    display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: stretch;
+gap: 25px;
+width: 100%;
+box-sizing: border-box;
+overflow-x: auto;
+padding: 15px 5px 30px 5px;
+}
+.about-four-grid .sector-card { flex: 1 0 calc(25% - 20px); min-width: 280px; }
+.sectors-horizontal-row .sector-card { flex: 1 0 calc(33.333% - 18px); min-width: 290px; }
+.about-four-grid::-webkit-scrollbar, .sectors-horizontal-row::-webkit-scrollbar { height: 6px; }
+.about-four-grid::-webkit-scrollbar-track, .sectors-horizontal-row::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.03); }
+.about-four-grid::-webkit-scrollbar-thumb, .sectors-horizontal-row::-webkit-scrollbar-thumb { background: var(--border-color, #262626); border-radius: 10px; }
+/* ==========================================================================
+   7. CORE ENGINE: Fixed 4 Columns Desktop & Tablet Layout (No Scrollbars)
+   ========================================================================== */
+.portfolio-fixed-grid {
+    display: grid !important;
+    /* Forces exactly 4 side-by-side tracks on desktop screens */
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    clear: both !important;
+}
+
+.portfolio-adjusted-card {
+    background-color: var(--sector-card-bg, #1a202c) !important;
+    border: 1px solid var(--border-color, #262626) !important;
+    border-radius: 12px !important;
+    padding: 35px 20px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-shadow: 0 15px 35px var(--shadow-tint, rgba(0, 0, 0, 0.4)) !important;
+    box-sizing: border-box !important;
+}
+
+.portfolio-adjusted-card .sector-title {
+    font-size: 1.25rem !important;
+    margin: 0 0 12px 0 !important;
+    line-height: 1.35 !important;
+    color: var(--sector-title-color, #ffffff) !important;
+}
+
+.card-meta-info {
+    font-size: 0.8rem !important;
+    color: var(--text-secondary, #999999) !important;
+    margin: 0 0 20px 0 !important;
+    line-height: 1.4 !important;
+}
+
+.portfolio-adjusted-card .sector-text {
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+    color: var(--sector-text-color, #a0aec0) !important;
+    margin: 0 !important;
+}
+
+/* ==========================================================================
+   8. Tablet Media Screen Rules (Maintains 4 Columns with Tighter Gaps)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .navbar { padding: 10px 20px; }
+    .menu-toggle { display: flex; }
+    
+    .nav-links {
+        position: absolute;
+        top: 65px;
+        right: 0;
+        width: 100%;
+        max-height: calc(100vh - 65px);
+        overflow-y: auto;
+        background: var(--nav-mobile-bg);
+        flex-direction: column;
+        align-items: center;
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+    }
+    .nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
+    .nav-links a, .theme-btn { width: 100%; text-align: center; padding: 18px 0; }
+
+    .hero-section { min-height: auto; padding: 100px 20px 60px; }
+    .hero-container { grid-template-columns: 1fr; gap: 50px; }
+    .hero-content { align-items: center; text-align: center; }
+    .hero-title { font-size: 3rem; }
+    .hero-subtitle { max-width: 100%; text-align: center; }
+    .hero-actions { justify-content: center; }
+    .hero-visual { height: 520px; }
+
+    .sectors-section { padding: 80px 20px; }
+    .about-four-grid .sector-card, .sectors-horizontal-row .sector-card { flex: 0 0 320px; }
+    
+    /* FIX: Keeps the layout flat at 4 columns on tablets with a tighter layout gap spacing width */
+    .portfolio-fixed-grid { 
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 12px !important; 
+    }
+    .portfolio-adjusted-card { padding: 25px 12px !important; }
+}
+
+/* ==========================================================================
+   9. Mobile Responsive Overrides (Morphs Into a Forced 2x2 Phone Matrix Grid)
+   ========================================================================== */
+@media (max-width: 600px) {
+    .navbar { padding: 8px 15px; }
+    .logo-img { height: 38px; }
+    .hero-section { padding: 95px 15px 50px; }
+    .hero-title { font-size: 2.3rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-actions { flex-direction: column; width: 100%; gap: 18px; }
+    .btn-hire { width: 100%; text-align: center; }
+    .hero-visual { height: 420px; }
+    .profile-img { max-width: 90%; }
+    .stamp-badge { right: 5px; bottom: 20px; width: 60px; height: 60px; }
+    .badge-row { justify-content: center; }
+
+    /* FIX: Instantly forces the 4 columns to morph into a structured 2x2 square box array */
+    .portfolio-fixed-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+    }
+    
+    .portfolio-adjusted-card { padding: 20px 12px !important; }
+    .portfolio-adjusted-card .sector-title { font-size: 1rem !important; }
+    .portfolio-adjusted-card .sector-text { font-size: 0.78rem !important; line-height: 1.5 !important; }
+}
+
+.fi-isolated-desktop-grid,
+.portfolio-fixed-grid,
+.about-four-grid,
+.sectors-horizontal-row {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.sectors-section {
+    display: block !important;
+    position: relative !important;
+    clear: both !important;
+    width: 100% !important;
+    min-height: auto !important; /* Overrides 100vh bugs that crush layout flows */
+    
+    /* Adds substantial vertical breathing room inside each section */
+    padding-top: 120px !important;
+    padding-bottom: 120px !important;
+    box-sizing: border-box !important;
+}
+
+/* Add a direct top margin pushes the Featured Systems section cleanly below Core Tech Capabilities */
+#portfolio.sectors-section {
+    margin-top: 80px !important;
+}
+
+/* Forces the heading titles to push down away from any container edges */
+.sectors-heading {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    margin-bottom: 60px !important; /* Generous gap below the title before the cards start */
+    text-align: center !important;
+}
+
+.btn-link2 {
+    padding: 14px 32px;
+    background-color: var(--accent-coral);
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-link2:hover {
+    background-color: var(--accent-coral-hover);
+    transform: translateY(-2px);
+}
+
+.portfolio-footer {
+    position: relative;
+    width: 100%;
+    /* Reuses your exact navigation bar purple gradient pattern */
+    background: linear-gradient(90deg, #4a154b 0%, #2b0c30 100%);
+    padding: 80px 40px 30px 40px;
+    padding-top: 50 px;
+    box-sizing: border-box;
+    display: block;
+    clear: both;
+    z-index: 10;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.footer-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    /* Clean asymmetric grid split columns layout mapping */
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* Branding Column Components */
+.footer-brand-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.footer-bio {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 360px;
+    margin: 0;
+}
+
+/* Links Grid Track Matrix Columns */
+.footer-links-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-nav-title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.5px;
+}
+
+.footer-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+.footer-nav-list a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-nav-list a:hover {
+    color: var(--accent-coral, #ff6b4a); /* Glows with coral theme color on mouseover */
+    padding-left: 4px;
+}
+
+/* Base Copyright Row Strip */
+.footer-copyright-bar {
+    max-width: 1440px;
+    width: 100%;
+    margin: 60px auto 0 auto;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-copyright-bar p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Light mode structural adaptive variable color swaps */
+[data-theme="light"] .portfolio-footer {
+    background: linear-gradient(90deg, #f4f4f9 0%, #e2e2e9 100%);
+    box-shadow: 0 -4px 15px rgba(148, 163, 184, 0.1);
+}
+
+[data-theme="light"] .footer-nav-title { color: #0f172a; }
+[data-theme="light"] .footer-bio,
+[data-theme="light"] .footer-nav-list,
+[data-theme="light"] .footer-nav-list a { color: #475569; }
+[data-theme="light"] .footer-copyright-bar { border-top-color: rgba(15, 23, 42, 0.08); }
+[data-theme="light"] .footer-copyright-bar p { color: #94a3b8; }
+
+/* ==========================================================================
+   Responsive Adaptive Mobile Viewports Breakpoints
+   ========================================================================== */
+@media (max-width: 768px) {
+    .portfolio-footer {
+        padding: 60px 20px 25px 20px;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr; /* Stacks column sections vertically onto mobile layouts */
+        gap: 40px;
+    }
+    
+    .footer-brand-column, .footer-links-column {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-copyright-bar {
+        margin-top: 40px;
+    }
+}
