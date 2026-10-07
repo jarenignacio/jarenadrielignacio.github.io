@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Jaren - Digital Infrastructure Developer</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              purpleHeader: '#2a0832',
+              purpleDeep: '#1e0524',
+              darkBg: '#0d0d11',
+              cardBg: '#181524',
+              cardBorder: '#322548',
+              orange: '#ff6b4a',
+              orangeHover: '#f05735',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Glow utility */
+    .btn-orange-glow {
+      box-shadow: 0 4px 20px -2px rgba(255, 107, 74, 0.4);
+    }
+    .btn-orange-glow:hover {
+      box-shadow: 0 8px 25px 0px rgba(255, 107, 74, 0.6);
+    }
+
+    /* Downward motion for CTA interactions */
+    .btn-shift-down {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-shift-down:hover {
+      transform: translateY(3px);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d0d11;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a0832;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white bg-slate-50 text-slate-900 dark:bg-[#0d0d11] dark:text-slate-200">
+
+  <!-- Top Navigation Header -->
+  <header class="bg-brand-purpleHeader sticky top-0 z-50 border-b border-purple-950/60 shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full border-2 border-white/80 flex items-center justify-center font-bold text-xl text-white group-hover:scale-105 transition-transform bg-purple-950/50">
+          ⓘ
+        </div>
+        <span class="text-white font-bold text-lg tracking-wider hidden sm:inline-block">JAREN</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-bold tracking-wider text-gray-200">
+        <a href="index.html" class="hover:text-brand-orange transition-colors duration-200 py-1">HOME</a>
+        <a href="about.html" class="hover:text-brand-orange transition-colors duration-200 py-1">ABOUT</a>
+        <a href="services.html" class="hover:text-brand-orange transition-colors duration-200 py-1">SERVICES</a>
+        <a href="portfolio.html" class="hover:text-brand-orange transition-colors duration-200 py-1">PORTFOLIO</a>
+        <a href="contact.html" class="text-white border-b-2 border-brand-orange py-1">CONTACT US</a>
+      </nav>
+
+      <!-- Theme Switcher & Mobile Menu Button -->
+      <div class="flex items-center gap-4">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="text-amber-300 hover:text-amber-200 text-xl p-2 rounded-full hover:bg-white/10 transition-colors focus:outline-none">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="md:hidden text-gray-200 text-2xl focus:outline-none">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-brand-purpleHeader border-b border-purple-900/40 px-6 py-4 space-y-3 font-semibold text-sm">
+      <a href="index.html" class="block text-gray-200 hover:text-brand-orange py-1">HOME</a>
+      <a href="about.html" class="block text-gray-200 hover:text-brand-orange py-1">ABOUT</a>
+      <a href="services.html" class="block text-gray-200 hover:text-brand-orange py-1">SERVICES</a>
+      <a href="portfolio.html" class="block text-gray-200 hover:text-brand-orange py-1">PORTFOLIO</a>
+      <a href="contact.html" class="block text-brand-orange font-bold py-1">CONTACT US</a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- Hero Header Section -->
+    <section class="relative py-16 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="max-w-3xl mx-auto space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-md border border-brand-orange/20">
+          Get In Touch
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          Start Your Next System Project
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-gray-300 leading-relaxed">
+          Have a civic portal, academic platform, or enterprise database project in mind? Reach out directly or fill out the inquiry form below to get started.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Contact Grid -->
+    <section class="pb-20 bg-slate-100 border-t border-slate-200 dark:bg-black/40 dark:border-purple-950/40 pt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Contact Info Sidebar (5 Columns) -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="bg-white border border-slate-200 dark:bg-[#181524] dark:border-[#322548] rounded-2xl p-6 sm:p-8 space-y-6 shadow-md dark:shadow-none">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white pb-3 border-b border-slate-200 dark:border-purple-900/40">
+                Direct Communication
+              </h3>
+
+              <!-- Email Card -->
+              <a href="mailto:jarenadrielignacio@gmail.com" class="flex items-start gap-4 p-3.5 rounded-xl bg-slate-50 dark:bg-black/30 border border-slate-200 dark:border-purple-900/30 hover:border-brand-orange transition-all duration-200 group">
+                <div class="w-10 h-10 rounded-lg bg-brand-orange/10 border border-brand-orange/30 flex items-center justify-center text-brand-orange shrink-0 group-hover:bg-brand-orange group-hover:text-white transition-colors">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-gray-400 block">Email Address</span>
+                  <span class="text-sm font-semibold text-slate-900 dark:text-white break-all">jarenadrielignacio@gmail.com</span>
+                </div>
+              </a>
+
+              <!-- Phone Card -->
+              <a href="tel:+639758816004" class="flex items-start gap-4 p-3.5 rounded-xl bg-slate-50 dark:bg-black/30 border border-slate-200 dark:border-purple-900/30 hover:border-brand-orange transition-all duration-200 group">
+                <div class="w-10 h-10 rounded-lg bg-brand-orange/10 border border-brand-orange/30 flex items-center justify-center text-brand-orange shrink-0 group-hover:bg-brand-orange group-hover:text-white transition-colors">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-gray-400 block">Phone & WhatsApp</span>
+                  <span class="text-sm font-semibold text-slate-900 dark:text-white">+63 975 881 6004</span>
+                </div>
+              </a>
+
+              <!-- Facebook Card -->
+              <a href="https://www.facebook.com/dyarennn" target="_blank" rel="noopener" class="flex items-start gap-4 p-3.5 rounded-xl bg-slate-50 dark:bg-black/30 border border-slate-200 dark:border-purple-900/30 hover:border-brand-orange transition-all duration-200 group">
+                <div class="w-10 h-10 rounded-lg bg-brand-orange/10 border border-brand-orange/30 flex items-center justify-center text-brand-orange shrink-0 group-hover:bg-brand-orange group-hover:text-white transition-colors">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-gray-400 block">Facebook Messenger</span>
+                  <span class="text-sm font-semibold text-slate-900 dark:text-white">facebook.com/dyarennn</span>
+                </div>
+              </a>
+
+              <!-- Location Card -->
+              <div class="flex items-start gap-4 p-3.5 rounded-xl bg-slate-50 dark:bg-black/30 border border-slate-200 dark:border-purple-900/30">
+                <div class="w-10 h-10 rounded-lg bg-brand-orange/10 border border-brand-orange/30 flex items-center justify-center text-brand-orange shrink-0">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-gray-400 block">Base Location</span>
+                  <span class="text-sm font-semibold text-slate-900 dark:text-white">Los Baños, Laguna 4030 Philippines</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service Availability Box -->
+            <div class="p-6 rounded-2xl bg-brand-purpleHeader border border-purple-900/50 text-white space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <h4 class="text-sm font-bold uppercase tracking-wider">Available for New Projects</h4>
+              </div>
+              <p class="text-xs text-gray-300 leading-relaxed">
+                Accepting new contract engagements for system architecture, civic digital transformation, and WCAG accessibility compliance audits.
+              </p>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form (7 Columns) -->
+          <div class="lg:col-span-7">
+            <div class="bg-white border border-slate-200 dark:bg-[#181524] dark:border-[#322548] rounded-2xl p-6 sm:p-8 space-y-6 shadow-md dark:shadow-none">
+              
+              <div>
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Send a Message</h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-gray-300 mt-1">
+                  Fill out the details below and I will respond to your inquiry within 24 business hours.
+                </p>
+              </div>
+
+              <!-- Success Alert Message Box -->
+              <div id="formSuccessAlert" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-semibold">
+                <i class="fa-solid fa-circle-check mr-2"></i> Your message has been sent successfully! I will contact you shortly.
+              </div>
+
+              <form id="contactForm" class="space-y-4">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Full Name -->
+                  <div class="space-y-1.5">
+                    <label for="fullName" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-gray-300">
+                      Full Name <span class="text-brand-orange">*</span>
+                    </label>
+                    <input type="text" id="fullName" required placeholder="e.g. Juan dela Cruz" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-300 dark:border-purple-900/50 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-orange transition-colors" />
+                  </div>
+
+                  <!-- Email Address -->
+                  <div class="space-y-1.5">
+                    <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-gray-300">
+                      Email Address <span class="text-brand-orange">*</span>
+                    </label>
+                    <input type="email" id="email" required placeholder="name@organization.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-300 dark:border-purple-900/50 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-orange transition-colors" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Organization / Sector -->
+                  <div class="space-y-1.5">
+                    <label for="organization" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-gray-300">
+                      Organization / Entity
+                    </label>
+                    <input type="text" id="organization" placeholder="e.g. LGU / Academic Dept / Enterprise" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-300 dark:border-purple-900/50 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-orange transition-colors" />
+                  </div>
+
+                  <!-- Project Sector -->
+                  <div class="space-y-1.5">
+                    <label for="sector" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-gray-300">
+                      System Type
+                    </label>
+                    <select id="sector" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-300 dark:border-purple-900/50 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-orange transition-colors">
+                      <option value="civic">Government / Civic Infrastructure</option>
+                      <option value="corporate">Corporate / Supply Chain</option>
+                      <option value="academic">Academic / Education (AMIS)</option>
+                      <option value="archival">Archival & Record Management</option>
+                      <option value="accessibility">WCAG Accessibility Audit</option>
+                      <option value="other">Other Inquiry</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Subject -->
+                <div class="space-y-1.5">
+                  <label for="subject" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-gray-300">
+                    Subject <span class="text-brand-orange">*</span>
+                  </label>
+                  <input type="text" id="subject" required placeholder="Brief project summary or title" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-300 dark:border-purple-900/50 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-orange transition-colors" />
+                </div>
+
+                <!-- Message -->
+                <div class="space-y-1.5">
+                  <label for="message" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-gray-300">
+                    Project Requirements / Details <span class="text-brand-orange">*</span>
+                  </label>
+                  <textarea id="message" rows="5" required placeholder="Please describe system goals, timeline, and compliance standards needed..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-black/40 border border-slate-300 dark:border-purple-900/50 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-orange transition-colors resize-none"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-shift-down btn-orange-glow w-full py-3.5 px-6 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-bold text-sm tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2">
+                  <span>Send Message</span>
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-purpleHeader text-gray-300 border-t border-purple-900/40 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+        
+        <!-- Brand Summary -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="w-10 h-10 rounded-full border-2 border-white/80 flex items-center justify-center font-bold text-xl text-white bg-purple-950/50">
+            ⓘ
+          </div>
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-sm">
+            Engineering secure, accessible, and high-performance digital systems for civic, academic, and institutional applications.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-white font-bold text-base">Quick Links</h4>
+          <ul class="space-y-2 text-xs sm:text-sm">
+            <li><a href="index.html" class="hover:text-brand-orange transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-orange transition-colors">About</a></li>
+            <li><a href="services.html" class="hover:text-brand-orange transition-colors">Services</a></li>
+            <li><a href="portfolio.html" class="hover:text-brand-orange transition-colors">Portfolio</a></li>
+            <li><a href="contact.html" class="hover:text-brand-orange text-brand-orange font-semibold transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-white font-bold text-base">Contact</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm">
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Email:</span>
+              <a href="mailto:jarenadrielignacio@gmail.com" class="hover:text-brand-orange transition-colors">jarenadrielignacio@gmail.com</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Phone:</span>
+              <a href="tel:+639758816004" class="hover:text-brand-orange transition-colors">+63 975 881 6004</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Facebook:</span>
+              <a href="https://www.facebook.com/dyarennn" target="_blank" rel="noopener" class="hover:text-brand-orange transition-colors">facebook.com/dyarennn</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Location:</span>
+              <span class="text-gray-300">Los Baños, Laguna 4030 Philippines</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="mt-12 pt-6 border-t border-purple-900/50 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
+        <p>© <span id="current-year">2026</span> JAREN | IGNACIO Digital Systems. All rights reserved.</p>
+        <p>Built for high performance & WCAG 2.1 AA compliance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Switcher Functionality
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const htmlElement = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun text-amber-400"></i>';
+      } else {
+        htmlElement.classList.add('dark');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      }
+    });
+
+    // Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Contact Form Handling Simulation
+    const contactForm = document.getElementById('contactForm');
+    const formSuccessAlert = document.getElementById('formSuccessAlert');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Show confirmation alert
+      formSuccessAlert.classList.remove('hidden');
+      
+      // Reset form controls
+      contactForm.reset();
+
+      // Scroll smoothly to alert box
+      formSuccessAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+</body>
+</html>

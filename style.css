@@ -221,6 +221,7 @@ img {
     align-items: center;
     gap: 25px;
     margin-bottom: 45px;
+    transform: translateY(15px);
 }
 
 .btn-hire {
@@ -348,8 +349,8 @@ img {
    5. General Reusable Section Container Base
    ========================================================================== */
 .sectors-section {
-    padding-top: 100px !important;   /* Pushes the content down from the section above */
-    padding-bottom: 100px !important;/* Pushes the content up from the section below */
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
     box-sizing: border-box !important;
     display: block !important;
     clear: both !important;
@@ -373,7 +374,7 @@ img {
     text-transform: uppercase;
     text-align: center;
     margin: 0 0 50px 0;
-    Padding-top: 50px;
+    padding-top: 50px;
 }
 
 .sector-card {
@@ -429,26 +430,26 @@ img {
    ========================================================================== */
 .about-four-grid, .sectors-horizontal-row {
     display: flex;
-flex-direction: row;
-justify-content: flex-start;
-align-items: stretch;
-gap: 25px;
-width: 100%;
-box-sizing: border-box;
-overflow-x: auto;
-padding: 15px 5px 30px 5px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 25px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    padding: 15px 5px 30px 5px;
 }
 .about-four-grid .sector-card { flex: 1 0 calc(25% - 20px); min-width: 280px; }
 .sectors-horizontal-row .sector-card { flex: 1 0 calc(33.333% - 18px); min-width: 290px; }
 .about-four-grid::-webkit-scrollbar, .sectors-horizontal-row::-webkit-scrollbar { height: 6px; }
 .about-four-grid::-webkit-scrollbar-track, .sectors-horizontal-row::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.03); }
 .about-four-grid::-webkit-scrollbar-thumb, .sectors-horizontal-row::-webkit-scrollbar-thumb { background: var(--border-color, #262626); border-radius: 10px; }
+
 /* ==========================================================================
    7. CORE ENGINE: Fixed 4 Columns Desktop & Tablet Layout (No Scrollbars)
    ========================================================================== */
 .portfolio-fixed-grid {
     display: grid !important;
-    /* Forces exactly 4 side-by-side tracks on desktop screens */
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 20px !important;
     width: 100% !important;
@@ -525,7 +526,6 @@ padding: 15px 5px 30px 5px;
     .sectors-section { padding: 80px 20px; }
     .about-four-grid .sector-card, .sectors-horizontal-row .sector-card { flex: 0 0 320px; }
     
-    /* FIX: Keeps the layout flat at 4 columns on tablets with a tighter layout gap spacing width */
     .portfolio-fixed-grid { 
         grid-template-columns: repeat(4, 1fr) !important;
         gap: 12px !important; 
@@ -549,7 +549,6 @@ padding: 15px 5px 30px 5px;
     .stamp-badge { right: 5px; bottom: 20px; width: 60px; height: 60px; }
     .badge-row { justify-content: center; }
 
-    /* FIX: Instantly forces the 4 columns to morph into a structured 2x2 square box array */
     .portfolio-fixed-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 15px !important;
@@ -575,25 +574,21 @@ padding: 15px 5px 30px 5px;
     position: relative !important;
     clear: both !important;
     width: 100% !important;
-    min-height: auto !important; /* Overrides 100vh bugs that crush layout flows */
-    
-    /* Adds substantial vertical breathing room inside each section */
+    min-height: auto !important;
     padding-top: 120px !important;
     padding-bottom: 120px !important;
     box-sizing: border-box !important;
 }
 
-/* Add a direct top margin pushes the Featured Systems section cleanly below Core Tech Capabilities */
 #portfolio.sectors-section {
     margin-top: 80px !important;
 }
 
-/* Forces the heading titles to push down away from any container edges */
 .sectors-heading {
     display: block !important;
     width: 100% !important;
     margin-top: 0 !important;
-    margin-bottom: 60px !important; /* Generous gap below the title before the cards start */
+    margin-bottom: 60px !important;
     text-align: center !important;
 }
 
@@ -605,6 +600,7 @@ padding: 15px 5px 30px 5px;
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 700;
+    transform: translateY(15px);
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
@@ -616,10 +612,9 @@ padding: 15px 5px 30px 5px;
 .portfolio-footer {
     position: relative;
     width: 100%;
-    /* Reuses your exact navigation bar purple gradient pattern */
     background: linear-gradient(90deg, #4a154b 0%, #2b0c30 100%);
     padding: 80px 40px 30px 40px;
-    padding-top: 50 px;
+    padding-top: 50px;
     box-sizing: border-box;
     display: block;
     clear: both;
@@ -633,13 +628,11 @@ padding: 15px 5px 30px 5px;
     width: 100%;
     margin: 0 auto;
     display: grid;
-    /* Clean asymmetric grid split columns layout mapping */
     grid-template-columns: 2fr 1fr 1fr;
     gap: 60px;
     align-items: flex-start;
 }
 
-/* Branding Column Components */
 .footer-brand-column {
     display: flex;
     flex-direction: column;
@@ -661,7 +654,6 @@ padding: 15px 5px 30px 5px;
     margin: 0;
 }
 
-/* Links Grid Track Matrix Columns */
 .footer-links-column {
     display: flex;
     flex-direction: column;
@@ -694,11 +686,10 @@ padding: 15px 5px 30px 5px;
 }
 
 .footer-nav-list a:hover {
-    color: var(--accent-coral, #ff6b4a); /* Glows with coral theme color on mouseover */
+    color: var(--accent-coral, #ff6b4a);
     padding-left: 4px;
 }
 
-/* Base Copyright Row Strip */
 .footer-copyright-bar {
     max-width: 1440px;
     width: 100%;
@@ -714,7 +705,6 @@ padding: 15px 5px 30px 5px;
     margin: 0;
 }
 
-/* Light mode structural adaptive variable color swaps */
 [data-theme="light"] .portfolio-footer {
     background: linear-gradient(90deg, #f4f4f9 0%, #e2e2e9 100%);
     box-shadow: 0 -4px 15px rgba(148, 163, 184, 0.1);
@@ -736,7 +726,7 @@ padding: 15px 5px 30px 5px;
     }
     
     .footer-container {
-        grid-template-columns: 1fr; /* Stacks column sections vertically onto mobile layouts */
+        grid-template-columns: 1fr;
         gap: 40px;
     }
     

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Jaren - Digital Infrastructure Developer</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              purpleHeader: '#2a0832',
+              purpleDeep: '#1e0524',
+              darkBg: '#0d0d11',
+              cardBg: '#181524',
+              cardBorder: '#322548',
+              orange: '#ff6b4a',
+              orangeHover: '#f05735',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Subtle glow on orange elements */
+    .btn-orange-glow {
+      box-shadow: 0 4px 20px -2px rgba(255, 107, 74, 0.4);
+    }
+    .btn-orange-glow:hover {
+      box-shadow: 0 8px 25px 0px rgba(255, 107, 74, 0.6);
+    }
+
+    /* Downward motion utility for buttons */
+    .btn-shift-down {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-shift-down:hover {
+      transform: translateY(3px);
+    }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d0d11;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a0832;
+      border-radius: 4px;
+    }
+
+    .modal-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .modal-scroll::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .modal-scroll::-webkit-scrollbar-thumb {
+      background: #ff6b4a;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white bg-slate-50 text-slate-900 dark:bg-[#0d0d11] dark:text-slate-200">
+
+  <!-- Top Navigation Header -->
+  <header class="bg-brand-purpleHeader sticky top-0 z-50 border-b border-purple-950/60 shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full border-2 border-white/80 flex items-center justify-center font-bold text-xl text-white group-hover:scale-105 transition-transform bg-purple-950/50">
+          ⓘ
+        </div>
+        <span class="text-white font-bold text-lg tracking-wider hidden sm:inline-block">JAREN</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-bold tracking-wider text-gray-200">
+        <a href="index.html" class="hover:text-brand-orange transition-colors duration-200 py-1">HOME</a>
+        <a href="about.html" class="hover:text-brand-orange transition-colors duration-200 py-1">ABOUT</a>
+        <a href="services.html" class="hover:text-brand-orange transition-colors duration-200 py-1">SERVICES</a>
+        <a href="portfolio.html" class="text-white border-b-2 border-brand-orange py-1">PORTFOLIO</a>
+        <a href="contact.html" class="hover:text-brand-orange transition-colors duration-200 py-1">CONTACT US</a>
+      </nav>
+
+      <!-- Theme Switcher & Mobile Menu Button -->
+      <div class="flex items-center gap-4">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="text-amber-300 hover:text-amber-200 text-xl p-2 rounded-full hover:bg-white/10 transition-colors focus:outline-none">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="md:hidden text-gray-200 text-2xl focus:outline-none">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-brand-purpleHeader border-b border-purple-900/40 px-6 py-4 space-y-3 font-semibold text-sm">
+      <a href="index.html" class="block text-gray-200 hover:text-brand-orange py-1">HOME</a>
+      <a href="about.html" class="block text-gray-200 hover:text-brand-orange py-1">ABOUT</a>
+      <a href="services.html" class="block text-gray-200 hover:text-brand-orange py-1">SERVICES</a>
+      <a href="portfolio.html" class="block text-brand-orange font-bold py-1">PORTFOLIO</a>
+      <a href="contact.html" class="block text-gray-200 hover:text-brand-orange py-1">CONTACT US</a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- Hero Header Section -->
+    <section class="relative py-16 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="max-w-3xl mx-auto space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-md border border-brand-orange/20">
+          Featured Works
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          System Portfolio & Case Studies
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-gray-300 leading-relaxed">
+          A showcase of engineered web portals, database architectures, and civic digital systems built with performance, security, and accessibility in mind.
+        </p>
+
+        <!-- Category Filter Controls -->
+        <div class="flex flex-wrap items-center justify-center gap-2 pt-6">
+          <button class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold bg-brand-orange text-white transition-all duration-200" data-filter="all">All Projects</button>
+          <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-200 dark:bg-white/5 text-slate-700 dark:text-gray-300 hover:bg-brand-orange hover:text-white transition-all duration-200" data-filter="civic">Government / Civic</button>
+          <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-200 dark:bg-white/5 text-slate-700 dark:text-gray-300 hover:bg-brand-orange hover:text-white transition-all duration-200" data-filter="corporate">Corporate / Supply Chain</button>
+          <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-200 dark:bg-white/5 text-slate-700 dark:text-gray-300 hover:bg-brand-orange hover:text-white transition-all duration-200" data-filter="education">Education</button>
+          <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-200 dark:bg-white/5 text-slate-700 dark:text-gray-300 hover:bg-brand-orange hover:text-white transition-all duration-200" data-filter="institutional">Institutional / Non-Profit</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <section class="py-12 bg-slate-100 border-t border-slate-200 dark:bg-black/40 dark:border-purple-950/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <!-- Card 1: Barangay Documentation -->
+          <div class="project-card civic p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6 bg-white border border-slate-200 shadow-md hover:border-brand-orange/50 hover:shadow-xl transition-all duration-300 dark:bg-[#181524] dark:border-[#322548]">
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                  Barangay Documentation & Certificate Request System
+                </h3>
+                <p class="text-xs font-bold text-brand-orange mt-1">
+                  Sector: Government / Local Civic Infrastructure
+                </p>
+                <p class="text-[11px] text-slate-500 dark:text-gray-400 mt-0.5">
+                  Standards: WCAG 2.1 AA | Data Privacy Act Compliant
+                </p>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                A secure public service web portal built to digitize manual desk operations, allowing residents to request clearances and certificates online with real-time status tracking. Key Deliverables include automated tracking ID generation, administrative verification queues, and SMS/Email status notifications.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-purple-900/40 space-y-4">
+              <div>
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-white bg-[#ff6b4a]/20 border border-[#ff6b4a]/40 px-2.5 py-0.5 rounded text-brand-orange">
+                  Impact
+                </span>
+                <p class="text-xs font-semibold text-slate-800 dark:text-gray-200 mt-1">
+                  100% WCAG 2.1 AA Pass Rate and a 65% reduction in municipal hall waiting times.
+                </p>
+              </div>
+
+              <button onclick="openProjectModal('proj1')" class="btn-shift-down text-xs font-bold text-brand-orange hover:text-brand-orangeHover inline-flex items-center gap-1.5 pt-2">
+                <span>View Full System Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Enterprise Multi-Warehouse Inventory -->
+          <div class="project-card corporate p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6 bg-white border border-slate-200 shadow-md hover:border-brand-orange/50 hover:shadow-xl transition-all duration-300 dark:bg-[#181524] dark:border-[#322548]">
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                  Enterprise Multi-Warehouse Inventory Management System
+                </h3>
+                <p class="text-xs font-bold text-brand-orange mt-1">
+                  Sector: Corporate / Logistics & Supply Chain
+                </p>
+                <p class="text-[11px] text-slate-500 dark:text-gray-400 mt-0.5">
+                  Standards: SOC 2 Security Protocols | REST API Architecture
+                </p>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                A high-speed web platform engineered for real-time stock tracking, automated reorder thresholds, and multi-location asset management across enterprise facility nodes. Key Deliverables include an interactive inventory dashboard with low-stock alerts, role-based access control (RBAC), and barcode scanner API integration.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-purple-900/40 space-y-4">
+              <div>
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-white bg-[#ff6b4a]/20 border border-[#ff6b4a]/40 px-2.5 py-0.5 rounded text-brand-orange">
+                  Impact
+                </span>
+                <p class="text-xs font-semibold text-slate-800 dark:text-gray-200 mt-1">
+                  Achieved a 99.9% uptime record and improved stock auditing speed by 40%.
+                </p>
+              </div>
+
+              <button onclick="openProjectModal('proj2')" class="btn-shift-down text-xs font-bold text-brand-orange hover:text-brand-orangeHover inline-flex items-center gap-1.5 pt-2">
+                <span>View Full System Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3: Centralized Academic Management Information System (AMIS) -->
+          <div class="project-card education p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6 bg-white border border-slate-200 shadow-md hover:border-brand-orange/50 hover:shadow-xl transition-all duration-300 dark:bg-[#181524] dark:border-[#322548]">
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                  Centralized Academic Management Information System (AMIS)
+                </h3>
+                <p class="text-xs font-bold text-brand-orange mt-1">
+                  Sector: Education / Academic Institutions
+                </p>
+                <p class="text-[11px] text-slate-500 dark:text-gray-400 mt-0.5">
+                  Standards: FERPA Standards | Secure SSO | WCAG 2.1 AA
+                </p>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                A comprehensive academic operations hub designed to streamline student registration, grade submission, faculty scheduling, and institutional record-keeping. Key Deliverables include student self-service portals, faculty grade submission dashboards, and automated transcript processing.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-purple-900/40 space-y-4">
+              <div>
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-white bg-[#ff6b4a]/20 border border-[#ff6b4a]/40 px-2.5 py-0.5 rounded text-brand-orange">
+                  Impact
+                </span>
+                <p class="text-xs font-semibold text-slate-800 dark:text-gray-200 mt-1">
+                  Handled peak enrollment traffic with zero downtime and 100/100 Core Web Vitals performance.
+                </p>
+              </div>
+
+              <button onclick="openProjectModal('proj3')" class="btn-shift-down text-xs font-bold text-brand-orange hover:text-brand-orangeHover inline-flex items-center gap-1.5 pt-2">
+                <span>View Full System Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 4: Archival Digitalization & Church Records Management System -->
+          <div class="project-card institutional p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6 bg-white border border-slate-200 shadow-md hover:border-brand-orange/50 hover:shadow-xl transition-all duration-300 dark:bg-[#181524] dark:border-[#322548]">
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                  Archival Digitalization & Church Records Management System
+                </h3>
+                <p class="text-xs font-bold text-brand-orange mt-1">
+                  Sector: Institutional / Non-Profit & Heritage Archives
+                </p>
+                <p class="text-[11px] text-slate-500 dark:text-gray-400 mt-0.5">
+                  Standards: Metadata Indexing | High-Resolution Archival Storage
+                </p>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                A comprehensive archival solution designed to digitize and manage historical church records, ensuring their preservation and accessibility for future generations. Key Deliverables include high-resolution scanning, metadata tagging, and a searchable digital repository.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-purple-900/40 space-y-4">
+              <div>
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-white bg-[#ff6b4a]/20 border border-[#ff6b4a]/40 px-2.5 py-0.5 rounded text-brand-orange">
+                  Impact
+                </span>
+                <p class="text-xs font-semibold text-slate-800 dark:text-gray-200 mt-1">
+                  Reduced physical storage needs by 80% and improved access to historical documents by 150%.
+                </p>
+              </div>
+
+              <button onclick="openProjectModal('proj4')" class="btn-shift-down text-xs font-bold text-brand-orange hover:text-brand-orangeHover inline-flex items-center gap-1.5 pt-2">
+                <span>View Full System Details</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Scrollable Project Modal Popup Dialog -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-md p-3 sm:p-6 transition-opacity duration-300">
+    <div class="relative bg-white border border-slate-300 text-slate-900 dark:bg-[#181524] dark:border-purple-900/60 dark:text-white rounded-2xl max-w-4xl w-full h-[85vh] flex flex-col overflow-hidden shadow-2xl">
+      <!-- Modal Header (Sticky Top) -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-purple-900/50 bg-brand-purpleHeader shrink-0">
+        <h3 id="modalTitle" class="text-base sm:text-lg font-bold text-white flex items-center gap-2.5">
+          <i class="fa-solid fa-folder-open text-brand-orange"></i>
+          Project Case Study
+        </h3>
+        <button id="closeProjectBtn" aria-label="Close Project Modal" class="text-gray-300 hover:text-white text-xl transition-colors focus:outline-none p-1">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <!-- Modal Content Body -->
+      <div class="p-6 sm:p-8 overflow-y-auto flex-grow modal-scroll bg-slate-50 dark:bg-black/60 space-y-6">
+        <div>
+          <span id="modalSector" class="text-xs font-bold text-brand-orange uppercase tracking-wider block"></span>
+          <h4 id="modalSubTitle" class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1"></h4>
+          <p id="modalStandards" class="text-xs text-slate-500 dark:text-gray-400 mt-1"></p>
+        </div>
+
+        <div class="space-y-2">
+          <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-gray-400">System Overview & Scope</h5>
+          <p id="modalDescription" class="text-sm text-slate-700 dark:text-gray-300 leading-relaxed"></p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-brand-orange/10 border border-brand-orange/20 space-y-1">
+          <h5 class="text-xs font-bold uppercase tracking-wider text-brand-orange">Verified Impact Metric</h5>
+          <p id="modalImpact" class="text-sm font-semibold text-slate-900 dark:text-white"></p>
+        </div>
+
+        <div class="space-y-2">
+          <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-gray-400">Core Architecture & Tech Standards</h5>
+          <div id="modalTags" class="flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-brand-purpleHeader text-gray-300 border-t border-purple-900/40 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+        
+        <!-- Brand Summary -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="w-10 h-10 rounded-full border-2 border-white/80 flex items-center justify-center font-bold text-xl text-white bg-purple-950/50">
+            ⓘ
+          </div>
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-sm">
+            Engineering secure, accessible, and high-performance digital systems for civic, academic, and institutional applications.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-white font-bold text-base">Quick Links</h4>
+          <ul class="space-y-2 text-xs sm:text-sm">
+            <li><a href="index.html" class="hover:text-brand-orange transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-orange transition-colors">About</a></li>
+            <li><a href="services.html" class="hover:text-brand-orange transition-colors">Services</a></li>
+            <li><a href="portfolio.html" class="hover:text-brand-orange text-brand-orange font-semibold transition-colors">Portfolio</a></li>
+            <li><a href="contact.html" class="hover:text-brand-orange transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-white font-bold text-base">Contact</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm">
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Email:</span>
+              <a href="mailto:jarenadrielignacio@gmail.com" class="hover:text-brand-orange transition-colors">jarenadrielignacio@gmail.com</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Phone:</span>
+              <a href="tel:+639758816004" class="hover:text-brand-orange transition-colors">+63 975 881 6004</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Facebook:</span>
+              <a href="https://www.facebook.com/dyarennn" target="_blank" rel="noopener" class="hover:text-brand-orange transition-colors">facebook.com/dyarennn</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Location:</span>
+              <span class="text-gray-300">Los Baños, Laguna 4030 Philippines</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="mt-12 pt-6 border-t border-purple-900/50 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
+        <p>© <span id="current-year">2026</span> JAREN | IGNACIO Digital Systems. All rights reserved.</p>
+        <p>Built for high performance & WCAG 2.1 AA compliance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Switcher Functionality
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const htmlElement = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun text-amber-400"></i>';
+      } else {
+        htmlElement.classList.add('dark');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      }
+    });
+
+    // Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Portfolio Category Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-brand-orange', 'text-white', 'active');
+          btn.classList.add('bg-slate-200', 'dark:bg-white/5', 'text-slate-700', 'dark:text-gray-300');
+        });
+
+        button.classList.remove('bg-slate-200', 'dark:bg-white/5', 'text-slate-700', 'dark:text-gray-300');
+        button.classList.add('bg-brand-orange', 'text-white', 'active');
+
+        const filterValue = button.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          if (filterValue === 'all' || card.classList.contains(filterValue)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Modal Data from Image Specification
+    const projectsData = {
+      proj1: {
+        title: "Barangay Documentation & Certificate Request System",
+        sector: "Sector: Government / Local Civic Infrastructure",
+        standards: "Standards: WCAG 2.1 AA | Data Privacy Act Compliant",
+        desc: "A secure public service web portal built to digitize manual desk operations, allowing residents to request clearances and certificates online with real-time status tracking. Key Deliverables include automated tracking ID generation, administrative verification queues, and SMS/Email status notifications.",
+        impact: "100% WCAG 2.1 AA Pass Rate and a 65% reduction in municipal hall waiting times.",
+        tags: ["WCAG 2.1 AA", "Data Privacy Act", "SMS API Integration", "Civic Portal", "Tracking System"]
+      },
+      proj2: {
+        title: "Enterprise Multi-Warehouse Inventory Management System",
+        sector: "Sector: Corporate / Logistics & Supply Chain",
+        standards: "Standards: SOC 2 Security Protocols | REST API Architecture",
+        desc: "A high-speed web platform engineered for real-time stock tracking, automated reorder thresholds, and multi-location asset management across enterprise facility nodes. Key Deliverables include an interactive inventory dashboard with low-stock alerts, role-based access control (RBAC), and barcode scanner API integration.",
+        impact: "Achieved a 99.9% uptime record and improved stock auditing speed by 40%.",
+        tags: ["SOC 2 Compliance", "REST API", "Barcode Scanner API", "RBAC", "Multi-Warehouse"]
+      },
+      proj3: {
+        title: "Centralized Academic Management Information System (AMIS)",
+        sector: "Sector: Education / Academic Institutions",
+        standards: "Standards: FERPA Standards | Secure SSO | WCAG 2.1 AA",
+        desc: "A comprehensive academic operations hub designed to streamline student registration, grade submission, faculty scheduling, and institutional record-keeping. Key Deliverables include student self-service portals, faculty grade submission dashboards, and automated transcript processing.",
+        impact: "Handled peak enrollment traffic with zero downtime and 100/100 Core Web Vitals performance.",
+        tags: ["FERPA Standards", "Secure SSO", "WCAG 2.1 AA", "Transcript Automation", "EdTech"]
+      },
+      proj4: {
+        title: "Archival Digitalization & Church Records Management System",
+        sector: "Sector: Institutional / Non-Profit & Heritage Archives",
+        standards: "Standards: Metadata Indexing | High-Resolution Archival Storage",
+        desc: "A comprehensive archival solution designed to digitize and manage historical church records, ensuring their preservation and accessibility for future generations. Key Deliverables include high-resolution scanning, metadata tagging, and a searchable digital repository.",
+        impact: "Reduced physical storage needs by 80% and improved access to historical documents by 150%.",
+        tags: ["Metadata Indexing", "Archival Storage", "Digital Repository", "Heritage Preservation"]
+      }
+    };
+
+    const projectModal = document.getElementById('projectModal');
+    const closeProjectBtn = document.getElementById('closeProjectBtn');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubTitle = document.getElementById('modalSubTitle');
+    const modalSector = document.getElementById('modalSector');
+    const modalStandards = document.getElementById('modalStandards');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalImpact = document.getElementById('modalImpact');
+    const modalTags = document.getElementById('modalTags');
+
+    function openProjectModal(key) {
+      const data = projectsData[key];
+      if (!data) return;
+
+      modalSubTitle.textContent = data.title;
+      modalSector.textContent = data.sector;
+      modalStandards.textContent = data.standards;
+      modalDescription.textContent = data.desc;
+      modalImpact.textContent = data.impact;
+
+      modalTags.innerHTML = data.tags.map(tag => 
+        `<span class="text-xs font-semibold px-3 py-1 rounded-md bg-brand-orange/10 border border-brand-orange/20 text-brand-orange">${tag}</span>`
+      ).join('');
+
+      projectModal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeProjectModal() {
+      projectModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    closeProjectBtn.addEventListener('click', closeProjectModal);
+
+    window.addEventListener('click', (e) => {
+      if (e.target === projectModal) closeProjectModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeProjectModal();
+    });
+  </script>
+</body>
+</html>

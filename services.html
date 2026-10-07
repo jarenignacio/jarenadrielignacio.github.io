@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Jaren - Digital Infrastructure Developer</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              purpleHeader: '#2a0832',
+              purpleDeep: '#1e0524',
+              darkBg: '#0d0d11',
+              cardBg: '#181524',
+              cardBorder: '#322548',
+              orange: '#ff6b4a',
+              orangeHover: '#f05735',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Subtle glow on orange buttons */
+    .btn-orange-glow {
+      box-shadow: 0 4px 20px -2px rgba(255, 107, 74, 0.4);
+    }
+    .btn-orange-glow:hover {
+      box-shadow: 0 8px 25px 0px rgba(255, 107, 74, 0.6);
+    }
+
+    /* Downward motion utility for buttons */
+    .btn-shift-down {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-shift-down:hover {
+      transform: translateY(3px);
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d0d11;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a0832;
+      border-radius: 4px;
+    }
+
+    /* Custom scrollbar specifically for modal scroll areas */
+    .modal-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .modal-scroll::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .modal-scroll::-webkit-scrollbar-thumb {
+      background: #ff6b4a;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white bg-slate-50 text-slate-900 dark:bg-[#0d0d11] dark:text-slate-200">
+
+  <!-- Top Navigation Header -->
+  <header class="bg-brand-purpleHeader sticky top-0 z-50 border-b border-purple-950/60 shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full border-2 border-white/80 flex items-center justify-center font-bold text-xl text-white group-hover:scale-105 transition-transform bg-purple-950/50">
+          ⓘ
+        </div>
+        <span class="text-white font-bold text-lg tracking-wider hidden sm:inline-block">JAREN</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-bold tracking-wider text-gray-200">
+        <a href="index.html" class="hover:text-brand-orange transition-colors duration-200 py-1">HOME</a>
+        <a href="about.html" class="hover:text-brand-orange transition-colors duration-200 py-1">ABOUT</a>
+        <a href="services.html" class="text-white border-b-2 border-brand-orange py-1">SERVICES</a>
+        <a href="portfolio.html" class="hover:text-brand-orange transition-colors duration-200 py-1">PORTFOLIO</a>
+        <a href="contact.html" class="hover:text-brand-orange transition-colors duration-200 py-1">CONTACT US</a>
+      </nav>
+
+      <!-- Theme Switcher & Mobile Menu Button -->
+      <div class="flex items-center gap-4">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="text-amber-300 hover:text-amber-200 text-xl p-2 rounded-full hover:bg-white/10 transition-colors focus:outline-none">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="md:hidden text-gray-200 text-2xl focus:outline-none">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-brand-purpleHeader border-b border-purple-900/40 px-6 py-4 space-y-3 font-semibold text-sm">
+      <a href="index.html" class="block text-gray-200 hover:text-brand-orange py-1">HOME</a>
+      <a href="about.html" class="block text-gray-200 hover:text-brand-orange py-1">ABOUT</a>
+      <a href="services.html" class="block text-brand-orange font-bold py-1">SERVICES</a>
+      <a href="portfolio.html" class="block text-gray-200 hover:text-brand-orange py-1">PORTFOLIO</a>
+      <a href="contact.html" class="block text-gray-200 hover:text-brand-orange py-1">CONTACT US</a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- Hero Header Section -->
+    <section class="relative py-16 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="max-w-3xl mx-auto space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-md border border-brand-orange/20">
+          Core Offerings
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          Solutions & Technical Capabilities
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-gray-300 leading-relaxed">
+          Delivering secure, scalable, and WCAG-compliant web applications designed for civic organizations, academic initiatives, and enterprise digital operations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="py-12 bg-slate-100 border-t border-slate-200 dark:bg-black/40 dark:border-purple-950/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- Service Card 1 -->
+          <div class="p-8 rounded-2xl flex flex-col justify-between space-y-6 bg-white border border-slate-200 shadow-md hover:border-brand-orange/50 hover:shadow-xl transition-all duration-300 dark:bg-brand-cardBg/80 dark:border-brand-cardBorder dark:shadow-none">
+            <div class="space-y-4">
+              <div class="w-14 h-14 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Full-Stack Web Development</h2>
+              <p class="text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                Custom web application development built with React, Node.js, and modern CSS frameworks. Focused on clean architecture, dynamic data binding, and maintainable codebases.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-500 dark:text-gray-400 font-medium pt-2">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Responsive Single Page Applications (SPAs)</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> RESTful API Integration</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> State Management & Component Libraries</li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-gray-800">
+              <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-brand-orangeHover transition-colors">
+                <span>Request Quotation</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="p-8 rounded-2xl flex flex-col justify-between space-y-6 bg-white border border-slate-200 shadow-md hover:border-brand-orange/50 hover:shadow-xl transition-all duration-300 dark:bg-brand-cardBg/80 dark:border-brand-cardBorder dark:shadow-none">
+            <div class="space-y-4">
+              <div class="w-14 h-14 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Database Design & Systems</h2>
+              <p class="text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                Relational database architecture utilizing SQL and PostgreSQL. Engineered for optimal query performance, transactional integrity, and organized data structures.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-500 dark:text-gray-400 font-medium pt-2">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Schema Design & Normalization</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Relational Data Management</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Query Optimization & Security</li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-gray-800">
+              <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-brand-orangeHover transition-colors">
+                <span>Discuss Architecture</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="p-8 rounded-2xl flex flex-col justify-between space-y-6 bg-white border border-slate-200 shadow-md hover:border-brand-orange/50 hover:shadow-xl transition-all duration-300 dark:bg-brand-cardBg/80 dark:border-brand-cardBorder dark:shadow-none">
+            <div class="space-y-4">
+              <div class="w-14 h-14 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl">
+                <i class="fa-solid fa-palette"></i>
+              </div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">UI/UX & Graphic Systems</h2>
+              <p class="text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                Certified in graphic design principles by UPOU. Crafting accessible, intuitive interfaces with consistent visual hierarchy and standardized typography.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-500 dark:text-gray-400 font-medium pt-2">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Accessibility & WCAG Compliance</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Design Systems & Pattern Libraries</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Responsive Layout Prototyping</li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-gray-800">
+              <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-brand-orangeHover transition-colors">
+                <span>Explore Design Work</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div class="p-8 rounded-2xl flex flex-col justify-between space-y-6 bg-white border border-slate-200 shadow-md hover:border-brand-orange/50 hover:shadow-xl transition-all duration-300 dark:bg-brand-cardBg/80 dark:border-brand-cardBorder dark:shadow-none">
+            <div class="space-y-4">
+              <div class="w-14 h-14 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Civic & Enterprise Web Systems</h2>
+              <p class="text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                Engineered digital portals built to streamline operations for local administration, academic institutions, and public service organizations.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-500 dark:text-gray-400 font-medium pt-2">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Information Infrastructure</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Admin Control Panels</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Portal Maintenance & Updates</li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-gray-800">
+              <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-brand-orangeHover transition-colors">
+                <span>Inquire Portal Development</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 5 -->
+          <div class="p-8 rounded-2xl flex flex-col justify-between space-y-6 bg-white border border-slate-200 shadow-md hover:border-brand-orange/50 hover:shadow-xl transition-all duration-300 dark:bg-brand-cardBg/80 dark:border-brand-cardBorder dark:shadow-none">
+            <div class="space-y-4">
+              <div class="w-14 h-14 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Mobile Application Development</h2>
+              <p class="text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                Specialized training in mobile application engineering to deliver responsive, cross-platform mobile interfaces and lightweight front-end views.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-500 dark:text-gray-400 font-medium pt-2">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Cross-Platform UI Rendering</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Touch-Optimized Interactions</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Mobile-First Adaptive Views</li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-gray-800">
+              <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-brand-orangeHover transition-colors">
+                <span>Start Mobile Project</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 6 -->
+          <div class="p-8 rounded-2xl flex flex-col justify-between space-y-6 bg-white border border-slate-200 shadow-md hover:border-brand-orange/50 hover:shadow-xl transition-all duration-300 dark:bg-brand-cardBg/80 dark:border-brand-cardBorder dark:shadow-none">
+            <div class="space-y-4">
+              <div class="w-14 h-14 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl">
+                <i class="fa-solid fa-gauge-high"></i>
+              </div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Performance & Audit Optimization</h2>
+              <p class="text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+                Auditing existing web properties to improve load times, structural accessibility, code efficiency, and mobile responsiveness.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-500 dark:text-gray-400 font-medium pt-2">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Performance & Asset Optimization</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Cross-Browser Compatibility</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Code Cleanliness & Refactoring</li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-gray-800">
+              <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-brand-orangeHover transition-colors">
+                <span>Schedule Audit</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-purple-950 via-brand-purpleHeader to-brand-purpleDeep border border-purple-900/60 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 text-white">
+        <div class="space-y-2 text-center md:text-left">
+          <h3 class="text-2xl sm:text-3xl font-extrabold">Have a project or system in mind?</h3>
+          <p class="text-sm text-gray-300 max-w-xl">
+            Let's collaborate to build secure, robust digital infrastructure tailored to your exact administrative or operational requirements.
+          </p>
+        </div>
+        <a href="contact.html" class="bg-brand-orange hover:bg-brand-orangeHover text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 btn-orange-glow whitespace-nowrap shrink-0">
+          Start Conversation
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-purpleHeader text-gray-300 border-t border-purple-900/40 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+        
+        <!-- Brand Summary -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="w-10 h-10 rounded-full border-2 border-white/80 flex items-center justify-center font-bold text-xl text-white bg-purple-950/50">
+            ⓘ
+          </div>
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-sm">
+            Engineering secure, accessible, and high-performance digital systems for civic, academic, and institutional applications.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-white font-bold text-base">Quick Links</h4>
+          <ul class="space-y-2 text-xs sm:text-sm">
+            <li><a href="index.html" class="hover:text-brand-orange transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-orange transition-colors">About</a></li>
+            <li><a href="services.html" class="hover:text-brand-orange text-brand-orange font-semibold transition-colors">Services</a></li>
+            <li><a href="portfolio.html" class="hover:text-brand-orange transition-colors">Portfolio</a></li>
+            <li><a href="contact.html" class="hover:text-brand-orange transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-white font-bold text-base">Contact</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm">
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Email:</span>
+              <a href="mailto:jarenadrielignacio@gmail.com" class="hover:text-brand-orange transition-colors">jarenadrielignacio@gmail.com</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Phone:</span>
+              <a href="tel:+639758816004" class="hover:text-brand-orange transition-colors">+63 975 881 6004</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Facebook:</span>
+              <a href="https://www.facebook.com/dyarennn" target="_blank" rel="noopener" class="hover:text-brand-orange transition-colors">facebook.com/dyarennn</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-400">Location:</span>
+              <span class="text-gray-300">Los Baños, Laguna 4030 Philippines</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="mt-12 pt-6 border-t border-purple-900/50 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
+        <p>© <span id="current-year">2026</span> JAREN | IGNACIO Digital Systems. All rights reserved.</p>
+        <p>Built for high performance & WCAG 2.1 AA compliance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Switcher Functionality
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const htmlElement = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun text-amber-400"></i>';
+      } else {
+        htmlElement.classList.add('dark');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      }
+    });
+
+    // Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
