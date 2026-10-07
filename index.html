@@ -41,37 +41,7 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #0d0d11;
-      color: #e2e8f0;
       transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    /* Light Theme Overrides */
-    html:not(.dark) body {
-      background-color: #f8fafc;
-      color: #0f172a;
-    }
-    html:not(.dark) .nav-header,
-    html:not(.dark) .footer-bg {
-      background-color: #2a0832;
-    }
-    html:not(.dark) .glass-card {
-      background-color: #ffffff;
-      border-color: #e2e8f0;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-      color: #1e293b;
-    }
-
-    /* Custom Glassmorphism effect */
-    .glass-card {
-      background: rgba(24, 21, 36, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(50, 37, 72, 0.6);
-    }
-    
-    .glass-card:hover {
-      border-color: rgba(255, 107, 74, 0.4);
-      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
     }
 
     /* Subtle glow on orange buttons */
@@ -95,18 +65,17 @@
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #0d0d11;
+      @apply bg-slate-100 dark:bg-[#0d0d11];
     }
     ::-webkit-scrollbar-thumb {
-      background: #2a0832;
-      border-radius: 4px;
+      @apply bg-slate-300 dark:bg-[#2a0832] rounded;
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white">
+<body class="min-h-screen flex flex-col justify-between bg-slate-50 dark:bg-brand-darkBg text-slate-900 dark:text-slate-100 selection:bg-brand-orange selection:text-white transition-colors duration-300">
 
   <!-- Top Navigation Header -->
-  <header class="nav-header bg-brand-purpleHeader sticky top-0 z-50 border-b border-purple-950/60 shadow-xl">
+  <header class="bg-slate-900 dark:bg-brand-purpleHeader sticky top-0 z-50 border-b border-slate-800 dark:border-purple-950/60 shadow-xl transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Logo -->
@@ -118,7 +87,7 @@
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-bold tracking-wider text-gray-200">
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-bold tracking-wider text-slate-300 dark:text-gray-200">
         <a href="index.html" class="text-white border-b-2 border-brand-orange py-1">HOME</a>
         <a href="about.html" class="hover:text-brand-orange transition-colors duration-200 py-1">ABOUT</a>
         <a href="services.html" class="hover:text-brand-orange transition-colors duration-200 py-1">SERVICES</a>
@@ -128,8 +97,8 @@
 
       <!-- Theme Switcher & Mobile Menu Button -->
       <div class="flex items-center gap-4">
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="text-amber-300 hover:text-amber-200 text-xl p-2 rounded-full hover:bg-white/10 transition-colors focus:outline-none">
-          <i class="fa-solid fa-moon"></i>
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="text-amber-400 dark:text-amber-300 hover:text-amber-300 text-xl p-2 rounded-full hover:bg-white/10 transition-colors focus:outline-none">
+          <i id="themeIcon" class="fa-solid fa-moon"></i>
         </button>
 
         <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="md:hidden text-gray-200 text-2xl focus:outline-none">
@@ -139,7 +108,7 @@
     </div>
 
     <!-- Mobile Navigation Dropdown -->
-    <div id="mobileMenu" class="hidden md:hidden bg-brand-purpleHeader border-b border-purple-900/40 px-6 py-4 space-y-3 font-semibold text-sm">
+    <div id="mobileMenu" class="hidden md:hidden bg-slate-900 dark:bg-brand-purpleHeader border-b border-slate-800 dark:border-purple-900/40 px-6 py-4 space-y-3 font-semibold text-sm">
       <a href="index.html" class="block text-brand-orange font-bold py-1">HOME</a>
       <a href="about.html" class="block text-gray-200 hover:text-brand-orange py-1">ABOUT</a>
       <a href="services.html" class="block text-gray-200 hover:text-brand-orange py-1">SERVICES</a>
@@ -160,11 +129,11 @@
             <span class="text-xs font-bold uppercase tracking-widest text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-md border border-brand-orange/20">
               Developer Profile
             </span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Meet <span class="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">JAREN</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+              Meet <span class="bg-gradient-to-r from-purple-700 via-indigo-600 to-brand-orange dark:from-white dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent">JAREN</span>
             </h1>
-            <p class="text-base sm:text-lg text-gray-300 leading-relaxed font-normal pt-2">
-              A Digital Infrastructure Developer and current Bachelor of Science in Information Technology student majoring in Web and Mobile Applications Development, specializing in Civic, Institutional, and Academic Web Systems.
+            <p class="text-base sm:text-lg text-slate-600 dark:text-gray-300 leading-relaxed font-normal pt-2">
+              A Digital Infrastructure Developer and current Bachelor of Science in Information Technology student majoring in Web and Mobile Applications Development, specializing in Civic, Institutional, and Academic Web Systems.[cite: 12]
             </p>
           </div>
 
@@ -173,38 +142,38 @@
             <a href="contact.html" class="bg-brand-orange hover:bg-brand-orangeHover text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 btn-orange-glow inline-block text-center">
               Hire Now
             </a>
-            <a href="portfolio.html" class="btn-shift-down px-6 py-3.5 rounded-xl font-semibold text-gray-200 hover:text-white bg-white/5 hover:bg-white/10 transition-all duration-200 border border-gray-700/60 inline-flex items-center gap-2">
+            <a href="portfolio.html" class="btn-shift-down px-6 py-3.5 rounded-xl font-semibold text-slate-700 dark:text-gray-200 hover:text-slate-900 dark:hover:text-white bg-slate-200/60 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-200 border border-slate-300 dark:border-gray-700/60 inline-flex items-center gap-2">
               <span>View Portfolio</span>
               <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
           </div>
 
           <!-- Expertise Badges -->
-          <div class="space-y-3 pt-6 border-t border-gray-800/80">
-            <h2 class="text-xs font-bold tracking-widest text-gray-400 uppercase">Expertise In</h2>
+          <div class="space-y-3 pt-6 border-t border-slate-200 dark:border-gray-800/80">
+            <h2 class="text-xs font-bold tracking-widest text-slate-500 dark:text-gray-400 uppercase">Expertise In</h2>
             <div class="flex flex-wrap gap-2.5">
-              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-black/40 border border-gray-700/80 text-gray-200 hover:border-brand-orange transition-colors">
+              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-200/80 dark:bg-black/40 border border-slate-300 dark:border-gray-700/80 text-slate-800 dark:text-gray-200 hover:border-brand-orange transition-colors">
                 HTML
               </span>
-              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-black/40 border border-gray-700/80 text-gray-200 hover:border-brand-orange transition-colors">
+              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-200/80 dark:bg-black/40 border border-slate-300 dark:border-gray-700/80 text-slate-800 dark:text-gray-200 hover:border-brand-orange transition-colors">
                 CSS
               </span>
-              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-black/40 border border-gray-700/80 text-gray-200 hover:border-brand-orange transition-colors">
+              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-200/80 dark:bg-black/40 border border-slate-300 dark:border-gray-700/80 text-slate-800 dark:text-gray-200 hover:border-brand-orange transition-colors">
                 JS
               </span>
-              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-black/40 border border-gray-700/80 text-gray-200 hover:border-brand-orange transition-colors">
+              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-200/80 dark:bg-black/40 border border-slate-300 dark:border-gray-700/80 text-slate-800 dark:text-gray-200 hover:border-brand-orange transition-colors">
                 Git
               </span>
-              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-black/40 border border-gray-700/80 text-gray-200 hover:border-brand-orange transition-colors">
+              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-200/80 dark:bg-black/40 border border-slate-300 dark:border-gray-700/80 text-slate-800 dark:text-gray-200 hover:border-brand-orange transition-colors">
                 React
               </span>
-              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-black/40 border border-gray-700/80 text-gray-200 hover:border-brand-orange transition-colors">
+              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-200/80 dark:bg-black/40 border border-slate-300 dark:border-gray-700/80 text-slate-800 dark:text-gray-200 hover:border-brand-orange transition-colors">
                 Node.js
               </span>
-              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-black/40 border border-gray-700/80 text-gray-200 hover:border-brand-orange transition-colors">
+              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-200/80 dark:bg-black/40 border border-slate-300 dark:border-gray-700/80 text-slate-800 dark:text-gray-200 hover:border-brand-orange transition-colors">
                 SQL
               </span>
-              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-black/40 border border-gray-700/80 text-gray-200 hover:border-brand-orange transition-colors">
+              <span class="px-4 py-1.5 rounded-lg text-xs font-bold bg-slate-200/80 dark:bg-black/40 border border-slate-300 dark:border-gray-700/80 text-slate-800 dark:text-gray-200 hover:border-brand-orange transition-colors">
                 WCAG 2.1 AA
               </span>
             </div>
@@ -213,7 +182,7 @@
 
         <!-- Right Profile Image Representation -->
         <div class="lg:col-span-5 flex justify-center lg:justify-end">
-          <div class="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden glass-card p-2 group">
+          <div class="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-lg dark:shadow-none p-2 group hover:border-brand-orange/40 transition-all duration-300">
             <div class="w-full h-full rounded-xl overflow-hidden bg-gradient-to-b from-purple-900/30 to-black/80 relative">
               <img 
                 src="images/orig_profile.jpg" 
@@ -224,7 +193,7 @@
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-6">
                 <div>
                   <h3 class="text-white font-bold text-lg">Jaren Adriel Ignacio</h3>
-                  <p class="text-xs text-brand-orange font-medium">System Develope</p>
+                  <p class="text-xs text-brand-orange font-medium">System Developer</p>
                 </div>
               </div>
             </div>
@@ -235,41 +204,41 @@
     </section>
 
     <!-- Sector Pillars Section -->
-    <section class="py-16 bg-black/40 border-t border-purple-950/40">
+    <section class="py-16 bg-slate-200/50 dark:bg-black/40 border-t border-slate-200 dark:border-purple-950/40 transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Sector Pillars</h2>
-          <p class="text-sm text-gray-400">Core operational domains for digital web infrastructure development.</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Sector Pillars</h2>
+          <p class="text-sm text-slate-600 dark:text-gray-400">Core operational domains for digital web infrastructure development.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="glass-card p-6 rounded-2xl transition-all duration-300">
+          <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl transition-all duration-300 hover:border-brand-orange/40">
             <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl mb-4">
               🏛️
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Government Systems</h3>
-            <p class="text-xs text-gray-300 leading-relaxed">
-              High-security, WCAG-compliant web systems built to digitize municipal operations, streamline document requests, and expand online access for residents.
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Government Systems</h3>
+            <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+              High-security, WCAG-compliant web systems built to digitize municipal operations, streamline document requests, and expand online access for residents.[cite: 12]
             </p>
           </div>
 
-          <div class="glass-card p-6 rounded-2xl transition-all duration-300">
+          <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl transition-all duration-300 hover:border-brand-orange/40">
             <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl mb-4">
               👥
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Private & Corporate Organizations</h3>
-            <p class="text-xs text-gray-300 leading-relaxed">
-              Scalable, role-based management platforms engineered to optimize inventory workflows, internal reporting, and enterprise resource tracking.
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Private & Corporate Organizations</h3>
+            <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+              Scalable, role-based management platforms engineered to optimize inventory workflows, internal reporting, and enterprise resource tracking.[cite: 12]
             </p>
           </div>
 
-          <div class="glass-card p-6 rounded-2xl transition-all duration-300">
+          <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl transition-all duration-300 hover:border-brand-orange/40">
             <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl mb-4">
               🎓
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Educational Institutions</h3>
-            <p class="text-xs text-gray-300 leading-relaxed">
-              Accessible management hubs designed to unify student enrollment, faculty workflows, transcript generation, and campus communications.
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Educational Institutions</h3>
+            <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+              Accessible management hubs designed to unify student enrollment, faculty workflows, transcript generation, and campus communications.[cite: 12]
             </p>
           </div>
         </div>
@@ -279,124 +248,124 @@
     <!-- Technical Capabilities Section -->
     <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Core Technical Capabilities</h2>
-        <p class="text-sm text-gray-400">Architectural standards and technical execution across modern web tech stacks.</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Core Technical Capabilities</h2>
+        <p class="text-sm text-slate-600 dark:text-gray-400">Architectural standards and technical execution across modern web tech stacks.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="glass-card p-6 rounded-2xl transition-all duration-300">
+        <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl transition-all duration-300 hover:border-brand-orange/40">
           <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-xl mb-4">
             <i class="fa-solid fa-circle-check"></i>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">Standards & Compliance</h3>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            WCAG 2.1 AA, ADA Section 508, FERPA, and Data Privacy Act Guidelines compliance auditing and implementation.
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Standards & Compliance</h3>
+          <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+            WCAG 2.1 AA, ADA Section 508, FERPA, and Data Privacy Act Guidelines compliance auditing and implementation.[cite: 12]
           </p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl transition-all duration-300">
+        <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl transition-all duration-300 hover:border-brand-orange/40">
           <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-xl mb-4">
             <i class="fa-solid fa-laptop-code"></i>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">Frontend Engineering</h3>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            React, JavaScript (ES6+), Semantic HTML5, Tailwind CSS, and Mobile-First responsive user interfaces.
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Frontend Engineering</h3>
+          <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+            React, JavaScript (ES6+), Semantic HTML5, Tailwind CSS, and Mobile-First responsive user interfaces.[cite: 12]
           </p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl transition-all duration-300">
+        <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl transition-all duration-300 hover:border-brand-orange/40">
           <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-xl mb-4">
             <i class="fa-solid fa-server"></i>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">Backend & Systems</h3>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            REST APIs, Node.js, Secure SSO, Role-Based Access Control (RBAC), and SQL Database Architecture.
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Backend & Systems</h3>
+          <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+            REST APIs, Node.js, Secure SSO, Role-Based Access Control (RBAC), and SQL Database Architecture.[cite: 12]
           </p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl transition-all duration-300">
+        <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl transition-all duration-300 hover:border-brand-orange/40">
           <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-xl mb-4">
             <i class="fa-solid fa-shield-halved"></i>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">Security & Optimization</h3>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            SSL/TLS Protocols, Content Security Policy (CSP), and Core Web Vitals performance optimization.
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Security & Optimization</h3>
+          <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+            SSL/TLS Protocols, Content Security Policy (CSP), and Core Web Vitals performance optimization.[cite: 12]
           </p>
         </div>
       </div>
     </section>
 
     <!-- Featured Systems Section -->
-    <section class="py-16 bg-black/40 border-t border-purple-950/40">
+    <section class="py-16 bg-slate-200/50 dark:bg-black/40 border-t border-slate-200 dark:border-purple-950/40 transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Featured System Implementations</h2>
-          <p class="text-sm text-gray-400">Deployed solutions with tangible civic and enterprise impact.</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Featured System Implementations</h2>
+          <p class="text-sm text-slate-600 dark:text-gray-400">Deployed solutions with tangible civic and enterprise impact.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           
           <!-- System 1 -->
-          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between space-y-4">
+          <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl flex flex-col justify-between space-y-4 transition-all duration-300 hover:border-brand-orange/40">
             <div>
-              <h3 class="text-lg font-bold text-white mb-1">Barangay Documentation & Certificate Request System</h3>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Barangay Documentation & Certificate Request System</h3>
               <p class="text-xs font-semibold text-brand-orange">Sector: Government / Local Civic Infrastructure</p>
-              <p class="text-xs text-gray-400 mb-3">Standards: WCAG 2.1 AA | Data Privacy Act Compliant</p>
-              <p class="text-xs text-gray-300 leading-relaxed">
-                A secure public service web portal built to digitize manual desk operations, allowing residents to request clearances and certificates online with real-time status tracking. Key Deliverables include automated tracking ID generation, administrative verification queues, and SMS/Email status notifications.
+              <p class="text-xs text-slate-500 dark:text-gray-400 mb-3">Standards: WCAG 2.1 AA | Data Privacy Act Compliant</p>
+              <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+                A secure public service web portal built to digitize manual desk operations, allowing residents to request clearances and certificates online with real-time status tracking. Key Deliverables include automated tracking ID generation, administrative verification queues, and SMS/Email status notifications.[cite: 12]
               </p>
             </div>
-            <div class="pt-3 border-t border-gray-800">
+            <div class="pt-3 border-t border-slate-200 dark:border-gray-800">
               <span class="inline-block text-xs font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-md mb-1">Impact</span>
-              <p class="text-xs font-medium text-gray-300">100% WCAG 2.1 AA Pass Rate and a 65% reduction in municipal hall waiting times.</p>
+              <p class="text-xs font-medium text-slate-700 dark:text-gray-300">100% WCAG 2.1 AA Pass Rate and a 65% reduction in municipal hall waiting times.[cite: 12]</p>
             </div>
           </div>
 
           <!-- System 2 -->
-          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between space-y-4">
+          <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl flex flex-col justify-between space-y-4 transition-all duration-300 hover:border-brand-orange/40">
             <div>
-              <h3 class="text-lg font-bold text-white mb-1">Enterprise Multi-Warehouse Inventory Management System</h3>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Enterprise Multi-Warehouse Inventory Management System</h3>
               <p class="text-xs font-semibold text-brand-orange">Sector: Corporate / Logistics & Supply Chain</p>
-              <p class="text-xs text-gray-400 mb-3">Standards: SOC 2 Security Protocols | REST API Architecture</p>
-              <p class="text-xs text-gray-300 leading-relaxed">
-                A high-speed web platform engineered for real-time stock tracking, automated reorder thresholds, and multi-location asset management across enterprise facility nodes. Key Deliverables include an interactive inventory dashboard with low-stock alerts, role-based access control (RBAC), and barcode scanner API integration.
+              <p class="text-xs text-slate-500 dark:text-gray-400 mb-3">Standards: SOC 2 Security Protocols | REST API Architecture</p>
+              <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+                A high-speed web platform engineered for real-time stock tracking, automated reorder thresholds, and multi-location asset management across enterprise facility nodes. Key Deliverables include an interactive inventory dashboard with low-stock alerts, role-based access control (RBAC), and barcode scanner API integration.[cite: 12]
               </p>
             </div>
-            <div class="pt-3 border-t border-gray-800">
+            <div class="pt-3 border-t border-slate-200 dark:border-gray-800">
               <span class="inline-block text-xs font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-md mb-1">Impact</span>
-              <p class="text-xs font-medium text-gray-300">Achieved a 99.9% uptime record and improved stock auditing speed by 40%.</p>
+              <p class="text-xs font-medium text-slate-700 dark:text-gray-300">Achieved a 99.9% uptime record and improved stock auditing speed by 40%.[cite: 12]</p>
             </div>
           </div>
 
           <!-- System 3 -->
-          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between space-y-4">
+          <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl flex flex-col justify-between space-y-4 transition-all duration-300 hover:border-brand-orange/40">
             <div>
-              <h3 class="text-lg font-bold text-white mb-1">Centralized Academic Management Information System (AMIS)</h3>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Centralized Academic Management Information System (AMIS)</h3>
               <p class="text-xs font-semibold text-brand-orange">Sector: Education / Academic Institutions</p>
-              <p class="text-xs text-gray-400 mb-3">Standards: FERPA Standards | Secure SSO | WCAG 2.1 AA</p>
-              <p class="text-xs text-gray-300 leading-relaxed">
-                A comprehensive academic operations hub designed to streamline student registration, grade submission, faculty scheduling, and institutional record-keeping. Key Deliverables include student self-service portals, faculty grade submission dashboards, and automated transcript processing.
+              <p class="text-xs text-slate-500 dark:text-gray-400 mb-3">Standards: FERPA Standards | Secure SSO | WCAG 2.1 AA</p>
+              <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+                A comprehensive academic operations hub designed to streamline student registration, grade submission, faculty scheduling, and institutional record-keeping. Key Deliverables include student self-service portals, faculty grade submission dashboards, and automated transcript processing.[cite: 12]
               </p>
             </div>
-            <div class="pt-3 border-t border-gray-800">
+            <div class="pt-3 border-t border-slate-200 dark:border-gray-800">
               <span class="inline-block text-xs font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-md mb-1">Impact</span>
-              <p class="text-xs font-medium text-gray-300">Handled peak enrollment traffic with zero downtime and 100/100 Core Web Vitals performance.</p>
+              <p class="text-xs font-medium text-slate-700 dark:text-gray-300">Handled peak enrollment traffic with zero downtime and 100/100 Core Web Vitals performance.[cite: 12]</p>
             </div>
           </div>
 
           <!-- System 4 -->
-          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between space-y-4">
+          <div class="bg-white/80 dark:bg-brand-cardBg/75 backdrop-blur-md border border-slate-200 dark:border-brand-cardBorder/60 shadow-md dark:shadow-none p-6 rounded-2xl flex flex-col justify-between space-y-4 transition-all duration-300 hover:border-brand-orange/40">
             <div>
-              <h3 class="text-lg font-bold text-white mb-1">Archival Digitalization & Church Records Management System</h3>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Archival Digitalization & Church Records Management System</h3>
               <p class="text-xs font-semibold text-brand-orange">Sector: Institutional / Non-Profit & Heritage Archives</p>
-              <p class="text-xs text-gray-400 mb-3">Standards: Metadata Indexing | High-Resolution Archival Storage</p>
-              <p class="text-xs text-gray-300 leading-relaxed">
-                A comprehensive archival solution designed to digitize and manage historical church records, ensuring their preservation and accessibility for future generations. Key Deliverables include high-resolution scanning, metadata tagging, and a searchable digital repository.
+              <p class="text-xs text-slate-500 dark:text-gray-400 mb-3">Standards: Metadata Indexing | High-Resolution Archival Storage</p>
+              <p class="text-xs text-slate-600 dark:text-gray-300 leading-relaxed">
+                A comprehensive archival solution designed to digitize and manage historical church records, ensuring their preservation and accessibility for future generations. Key Deliverables include high-resolution scanning, metadata tagging, and a searchable digital repository.[cite: 12]
               </p>
             </div>
-            <div class="pt-3 border-t border-gray-800">
+            <div class="pt-3 border-t border-slate-200 dark:border-gray-800">
               <span class="inline-block text-xs font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-md mb-1">Impact</span>
-              <p class="text-xs font-medium text-gray-300">Reduced physical storage needs by 80% and improved access to historical documents by 150%.</p>
+              <p class="text-xs font-medium text-slate-700 dark:text-gray-300">Reduced physical storage needs by 80% and improved access to historical documents by 150%.[cite: 12]</p>
             </div>
           </div>
 
@@ -414,7 +383,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer-bg bg-brand-purpleHeader text-gray-300 border-t border-purple-900/40 py-12" id="contact">
+  <footer class="bg-slate-900 dark:bg-brand-purpleHeader text-slate-300 dark:text-gray-300 border-t border-slate-800 dark:border-purple-900/40 py-12 transition-colors duration-300" id="contact">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
         
@@ -423,8 +392,8 @@
           <div class="w-10 h-10 rounded-full border-2 border-white/80 flex items-center justify-center font-bold text-xl text-white bg-purple-950/50">
             ⓘ
           </div>
-          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-sm">
-            Engineering secure, accessible, and high-performance digital systems for civic, academic, and private institutions.
+          <p class="text-xs sm:text-sm text-slate-300 dark:text-gray-300 leading-relaxed max-w-sm">
+            Engineering secure, accessible, and high-performance digital systems for civic, academic, and private institutions.[cite: 12]
           </p>
         </div>
 
@@ -445,20 +414,20 @@
           <h4 class="text-white font-bold text-base">Contact</h4>
           <ul class="space-y-2.5 text-xs sm:text-sm">
             <li class="flex items-center gap-2">
-              <span class="text-gray-400">Email:</span>
+              <span class="text-slate-400 dark:text-gray-400">Email:</span>
               <a href="mailto:jarenadrielignacio@gmail.com" class="hover:text-brand-orange transition-colors">jarenadrielignacio@gmail.com</a>
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-gray-400">Phone:</span>
+              <span class="text-slate-400 dark:text-gray-400">Phone:</span>
               <a href="tel:+639758816004" class="hover:text-brand-orange transition-colors">+63 975 881 6004</a>
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-gray-400">Facebook:</span>
+              <span class="text-slate-400 dark:text-gray-400">Facebook:</span>
               <a href="https://www.facebook.com/dyarennn" target="_blank" rel="noopener" class="hover:text-brand-orange transition-colors">facebook.com/dyarennn</a>
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-gray-400">Location:</span>
-              <span class="text-gray-300">Los Baños, Laguna 4030 Philippines</span>
+              <span class="text-slate-400 dark:text-gray-400">Location:</span>
+              <span class="text-slate-300 dark:text-gray-300">Los Baños, Laguna 4030 Philippines</span>
             </li>
           </ul>
         </div>
@@ -466,7 +435,7 @@
       </div>
 
       <!-- Copyright Bar -->
-      <div class="mt-12 pt-6 border-t border-purple-900/50 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
+      <div class="mt-12 pt-6 border-t border-slate-800 dark:border-purple-900/50 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 dark:text-gray-400 gap-4">
         <p>© <span id="current-year">2026</span> JAREN | IGNACIO Digital Systems. All rights reserved.</p>
         <p>Built for high performance & WCAG 2.1 AA compliance.</p>
       </div>
@@ -474,17 +443,30 @@
   </footer>
 
   <script>
-    // Theme Switcher
+    // Persistent Theme Switcher Handler
     const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
     const htmlElement = document.documentElement;
+
+    // Check system preference or saved preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      htmlElement.classList.remove('dark');
+      themeIcon.className = 'fa-solid fa-sun';
+    } else {
+      htmlElement.classList.add('dark');
+      themeIcon.className = 'fa-solid fa-moon';
+    }
 
     themeToggleBtn.addEventListener('click', () => {
       if (htmlElement.classList.contains('dark')) {
         htmlElement.classList.remove('dark');
-        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun text-amber-400"></i>';
+        themeIcon.className = 'fa-solid fa-sun';
+        localStorage.setItem('theme', 'light');
       } else {
         htmlElement.classList.add('dark');
-        themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        themeIcon.className = 'fa-solid fa-moon';
+        localStorage.setItem('theme', 'dark');
       }
     });
 
